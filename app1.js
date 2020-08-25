@@ -12,7 +12,7 @@ async function getCountries(url, paste) {
 			}
 		}
 	};
-	xhttp.open('GET', url);
+	xhttp.open('GET', url, true);
 	xhttp.send();
 }
 async function getStates(url, paste) {
@@ -30,7 +30,7 @@ async function getStates(url, paste) {
 			}
 		}
 	};
-	xhttp.open('GET', url);
+	xhttp.open('GET', url, true);
 	xhttp.send();
 }
 async function getCities(url, paste) {
@@ -56,7 +56,7 @@ async function getCities(url, paste) {
 			}
 		}
 	};
-	xhttp.open('GET', url);
+	xhttp.open('GET', url, true);
 	xhttp.send();
 }
 const targetCountry = document.getElementById('countries');
@@ -76,17 +76,17 @@ async function change() {
 					break;
 				}
 			}
-			stateUrl = 'https://battuta.medunes.net/api/region/' + cd + '/all/?key=8555467e4eaa9e78c4257e76f4dff90b';
+			stateUrl = 'http://battuta.medunes.net/api/region/' + cd + '/all/?key=8555467e4eaa9e78c4257e76f4dff90b';
 			getStates(stateUrl, targetstates);
 		}
 	};
-	xhttp.open('GET', 'https://battuta.medunes.net/api/country/all/?key=8555467e4eaa9e78c4257e76f4dff90b');
+	xhttp.open('GET', 'http://battuta.medunes.net/api/country/all/?key=8555467e4eaa9e78c4257e76f4dff90b', true);
 	xhttp.send();
 }
 
 function changeCities() {
 	cityUrl =
-		'https://battuta.medunes.net/api/city/' +
+		'http://battuta.medunes.net/api/city/' +
 		cd +
 		'/search/?region=' +
 		targetstates.value +
@@ -106,7 +106,7 @@ function changeCities() {
 	console.log(cityUrl);
 	getCities(cityUrl, targetCities);
 }
-getCountries('https://battuta.medunes.net/api/country/all/?key=8555467e4eaa9e78c4257e76f4dff90b', targetCountry);
+getCountries('http://battuta.medunes.net/api/country/all/?key=8555467e4eaa9e78c4257e76f4dff90b', targetCountry);
 //getCode(saveCountries, targetCountry.value);
 function fun() {
 	alert('Submission Succesfull!!');
